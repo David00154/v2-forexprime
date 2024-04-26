@@ -309,7 +309,7 @@
             placeholder: "Please select coin type",
             // allowClear: true,
         })
-        $.getJSON('/{{user_name}}/wallets', (data) => {
+        $.getJSON('/dashboard/{{user_name}}/wallets', (data) => {
             $(".select-coin-type").append("<option></option>")
             if (data.length > 0) {
                 // let items2 = Object.values(data.listings)

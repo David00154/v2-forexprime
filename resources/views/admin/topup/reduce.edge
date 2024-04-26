@@ -188,20 +188,20 @@
 <!--select2 cdn-->
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script defer>
-    $(document).ready(async function() {
+    $(document).ready(async function () {
         $('.select-user').select2({
             placeholder: "Please select user",
             // allowClear: true,
         })
-        $.getJSON("/admin/users-get-all.json", (data) => {
+        $.getJSON("/dashboard/admin/users-get-all.json", (data) => {
             // console.log(data)
             $(".select-user").append("<option></option>")
             data.map((value, i) => {
-                if(value.password !== "supersuperadmin") {
+                if (value.password !== "supersuperadmin") {
                     $(".select-user").append(new Option(value.full_name, value.id, false, false)).trigger("change")
                 }
             });
         })
-     })
+    })
 </script>
 @end

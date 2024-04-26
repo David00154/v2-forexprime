@@ -326,7 +326,7 @@
                 $(".select-wallet-type").append(new Option(value.name, value.name, false, false)).trigger("change")
             });
         })
-        $.getJSON('/{{user_name}}/wallets', (data) => {
+        $.getJSON('/dashboard/{{user_name}}/wallets', (data) => {
             $(".select-coin-type").append("<option></option>")
             if (data.length > 0) {
                 // let items2 = Object.values(data.listings)
