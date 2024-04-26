@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "node ace serve --watch --no-assets",
-    "build": "./bin/render-build.sh",
-    "start": "./bin/render-start.sh",
+    "build": "node ace build --production --no-assets",
+    "start": "node server.js",
     "test": "node ace test"
   },
   "devDependencies": {
