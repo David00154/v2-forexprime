@@ -27,7 +27,7 @@ import Wallet from "App/Models/Wallet";
 //   return view.render('welcome')
 // })
 
-// Route.on("/").redirect("login.show");
+Route.on("/dashboard").redirect("login.show");
 
 Route.group(() => {
   // Auth Stuff
