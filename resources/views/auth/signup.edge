@@ -21,7 +21,7 @@
                 <div class="p-lg-5 p-4">
                     <div>
                         <h5 class="text-warning">Register Account</h5>
-                        <p class="text-muted">Get your Forex4You trading account now.</p>
+                        <p class="text-muted">Get your GloablPrime trading account now.</p>
                     </div>
 
                     <div class="mt-4">
@@ -120,8 +120,8 @@
                             </div>
 
                             <div class="mb-4">
-                                <p class="mb-0 fs-13 text-muted fst-italic">By registering you agree to the Forex4You <a
-                                        href="#"
+                                <p class="mb-0 fs-13 text-muted fst-italic">By registering you agree to the GloablPrime
+                                    <a href="#"
                                         class="text-warning text-decoration-underline fst-normal fw-semibold">Terms of
                                         Use</a></p>
                             </div>
@@ -155,7 +155,7 @@
 @section('scripts')
 @super
 <script defer>
-    $(document).ready(async function() {
+    $(document).ready(async function () {
         $('.select-country').select2({
             placeholder: "Please select country",
             // allowClear: true,
@@ -164,9 +164,9 @@
             // console.log(data)
             $(".select-country").append("<option></option>")
             data.map((value, i) => {
-            $(".select-country").append(new Option(value.name, value.name, false, false)).trigger("change")
-        });
+                $(".select-country").append(new Option(value.name, value.name, false, false)).trigger("change")
+            });
         })
-     })
+    })
 </script>
 @end
