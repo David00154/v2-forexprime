@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "node ace serve --watch --no-assets",
     "build": "node ace build --production --no-assets",
-    "start": "cd build && node server.js",
+    "start": "node build/server.js",
     "test": "node ace test",
-    "install": "node ace build --ignore-ts-errors --production && cd build && npm ci --production"
+    "install": "node ace build --ignore-ts-errors --production --no-assets"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^5.9.5",
