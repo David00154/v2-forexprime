@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "node ace serve --watch --no-assets",
     "build": "node ace build --production --no-assets",
-    "start": "cd && node server.js",
+    "start": "cd build && node server.js",
     "test": "node ace test",
     "install": "node ace build --ignore-ts-errors --production && cd build && npm ci --production"
   },
