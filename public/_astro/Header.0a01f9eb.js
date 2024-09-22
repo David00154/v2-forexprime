@@ -24,7 +24,7 @@ const h = ({ pathname: r }) => {
               href: "#",
               children: e.jsx("span", {
                 className: "text-white lg:text-[25px] text-[22px] font-bold",
-                children: "Exnessfx",
+                children: "Binharvest",
               }),
             }),
           }),
@@ -106,7 +106,7 @@ const h = ({ pathname: r }) => {
                 href: "#",
                 children: e.jsx("span", {
                   className: "text-white text-[22px] font-bold inline-block",
-                  children: "Exnessfx",
+                  children: "Binharvest",
                 }),
               }),
             }),
@@ -165,9 +165,9 @@ const h = ({ pathname: r }) => {
                         "text-white bg-dark-secondary w-[32px] h-[32px] text-center rounded-[50%] mr-[10px] flex items-center justify-center icon-email",
                     }),
                     e.jsx("a", {
-                      href: "mailto:support@Exnessfx.space",
+                      href: "mailto:support@Binharvest.space",
                       className: "text-white",
-                      children: "support@Exnessfx.space",
+                      children: "support@Binharvest.space",
                     }),
                   ],
                 }),
