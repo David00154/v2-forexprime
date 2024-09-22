@@ -1,6 +1,7 @@
 import type { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 import { schema, rules } from "@ioc:Adonis/Core/Validator";
 import User from "App/Models/User";
+import EmailClient from "../../Mailers/EmailClient";
 export default class AuthController {
   public async loginShow({ view }: HttpContextContract) {
     return view.render("auth/login");
@@ -54,9 +55,37 @@ export default class AuthController {
         return response.redirect().back();
       }
       const { "re-enter_password": _, ...data } = payload;
-      await User.create({
-        ...data,
-      });
+      // await User.create({
+      //   ...data,
+      // });
+      // console.log(data);
+      try {
+        const emailBody = `
+        <p>Dear ${data.fullName},</p>
+        <p>Welcome to Binharvest! We are delighted to have you as part of our investment family, and we look forward to helping you achieve your financial goals.</p>
+        <p>At Binharvest, we believe in building strong, long-term relationships with our clients based on trust, transparency, and personalized service. Our team of experts is dedicated to guiding you every step of the way as we work together to grow and safeguard your wealth.</p>
+        <p><b>What You Can Expect:</b></p>
+        <ul>
+          <li><b>Tailored Investment Solutions:</b> We'll provide you with customized strategies designed to align with your financial objectives and risk tolerance.</li>
+          <li><b>Ongoing Support:</b> Whether you need advice on a specific investment or a review of your portfolio, our team is here to assist you.</li>
+          <li><b>Regular Updates:</b> You’ll receive timely insights, reports, and updates on your investments, as well as access to our knowledgeable advisors when you need them.</li>
+        </ul>
+        <p>
+        If you have any questions or need assistance, feel free to contact us at <a href="mailto:support@binharvest.space">support@binharvest.space</a>. We’re here to make your journey with us as smooth and rewarding as possible.</p>
+        <p>Once again, welcome to Binharvest. We look forward to working with you!</p>
+        `;
+        await new EmailClient(
+          data.email,
+          "Welcome To Binharvest – We're Thrilled to Have You!",
+          emailBody
+        ).send();
+        await User.create({
+          ...data,
+        });
+      } catch (error) {
+        session.flash("form.error", "Internal Server Error");
+        response.redirect().back();
+      }
       session.flash("form.success", "You have been registered successfully");
       return response.redirect().toRoute("login.show");
     } catch (error) {
